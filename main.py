@@ -8,6 +8,15 @@ def read_root():
     return {"Hello": "World"}
 
 
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: str = None):
-    return {"item_id": item_id, "q": q}
+@app.get("/items/{num}")
+def read_item(num: int):
+    return {"num": num, "flag": isPrime(num)}
+
+
+def isPrime(n):
+    if n <= 1:
+        return "F"
+    for i in range(2, n):
+        if n % i == 0:
+            return "F"
+    return "T"
