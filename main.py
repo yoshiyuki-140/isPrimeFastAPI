@@ -3,13 +3,8 @@ from fastapi import FastAPI
 app = FastAPI()
 
 
-@app.get("/")
-def read_root():
-    return {"Hello": "World"}
-
-
-@app.get("/items/{num}")
-def read_item(num: int):
+@app.get("/{num}")
+def main(num: int):
     return {"num": num, "flag": isPrime(num)}
 
 
